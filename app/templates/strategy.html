@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+        <div class="col-12">
+              <span class="d-flex align-items-center purchase-popup">
+              {% if strategy %}
+                <h3>{{ strategy.common_name }} <span style="color: gray; text_transform:upper"> {{ strategy.strategy_id }} </span></h3>
+                <p> {{ strategy.description }} </p>
+                <p> {{ strategy.num_of_followers }}&nbsp;Subscribers </p>
+                <a href="#" target="_blank" class="btn purchase-button">Subscribed</a>
+              </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Transactions</h4>
+                  <p class="card-description">
+                    Most recent transactions using this strategy
+                  </p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Transaction ID</th>
+                        <th>Security</th>
+                        <th>Quantity</th>
+                        <th>Side </th>
+                        <th>Time </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% if transactions %}
+                        {% for transaction in transactions %}
+                      <tr>
+                        <td>{{ transaction.transaction_id }}</td>
+                        <td>{{ transaction.security_id }}</td>
+                        <td>{{ transaction.quantity }}</td>
+                        <td>{{ transaction.side }}</td>
+                        <td>{{ transaction.timestamp }}</td>
+                      </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Subscribers</h4>
+                  <p class="card-description">
+                    All subscriptions
+                  </p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Subscriber</th>
+                        <th>Date Subscribed</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% if subscriptions %}
+                            {% for subscription in subscriptions %}
+                        <tr>
+                            <td>{{ subscription.strategyId }}</td>
+                            <td>--</td>
+                        </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>     
+        </div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+

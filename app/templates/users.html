@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">All Users</h4>
+                  
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>User ID</th>
+                        <th>Full Name <th>
+                        <th>Number of Subscriptions</th>
+                        <th>Date Joined</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% if users %}
+                        {% for user in users %}
+                      <tr>
+                        <td><a href="#">{{ user.username }}</a></td>
+                        <td>{{ user.full_name }}</td>
+                        <td>---</td>
+                        <td>{{ user.date_joined }}</td>
+                        
+                      </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>    
+        </div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+

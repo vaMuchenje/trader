@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+          <div class="page-header">
+            <h2 class="page-title">
+                {{ current_user.full_name }}
+            </h2>
+          </div>
+
+
+        <div class="row">
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Subscriptions</h4>
+                  <p class="card-description">
+                    All recent transactions
+                  </p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Strategy ID</th>
+                        <th>Security</th>
+                        <th>Quantity</th>
+                        <th>Limit </th>
+                        <th>Side </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% if transactions %}
+                        {% for transaction in transactions %}
+                      <tr>
+                        <td>{{ transaction.strategyId }}</td>
+                        <td>{{ transaction.securityId }}</td>
+                        <td>{{ transaction.limit }}</td>
+                        <td>{{ transaction.limit }}</td>
+                        <td>{{ transaction.side }}</td>
+                      </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Transactions</h4>
+                  <p class="card-description">
+                    All subscriptions
+                  </p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Strategy ID</th>
+                        <th>Date Subscribed</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% if subscriptions %}
+                        {% for subscription in subscriptions %}
+                      <tr>
+                        <td>{{ subscription.strategyId }}</td>
+                        <td>--</td>
+                      </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>     
+        </div>
+
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+

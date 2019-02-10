@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+        <div class="row">
+            <div class="col-md-4 stretch-card grid-margin">
+              <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                  <img src="{{ url_for('static', filename='images/dashboard/circle.svg') }}" class="card-img-absolute" alt="circle-image">
+                  <h4 class="font-weight-normal mb-3">Total Subscriptions
+                    <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                  </h4>
+                  <h2 class="mb-5">$ 15,0000</h2>
+                    <h6 class="card-text"><a href="{{ url_for('users') }}">More...</a></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 stretch-card grid-margin">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="{{ url_for('static', filename='images/dashboard/circle.svg') }}" class="card-img-absolute" alt="circle-image">                  
+                  <h4 class="font-weight-normal mb-3">Trade Strategies
+                    <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                  </h4>
+                  <h2 class="mb-5">45,6334</h2>
+                  <h6 class="card-text"><a href="{{ url_for('strategies') }}">More...</a></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 stretch-card grid-margin">
+              <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                  <img src="{{ url_for('static', filename='images/dashboard/circle.svg') }}" class="card-img-absolute" alt="circle-image">                                    
+                  <h4 class="font-weight-normal mb-3">Transaction Totals
+                    <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                  </h4>
+                  <h2 class="mb-5">95,5741</h2>
+                  <h6 class="card-text"><a href="{{ url_for('transactions') }}">More...</a></h6>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Recent Transactions</h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>
+                            Strategy ID
+                          </th>
+                          <th>
+                            Transaction description
+                          </th>
+                          <th>
+                            Participants
+                          </th>
+                          <th>
+                            Time
+                          </th>
+                          <th>
+                            Transaction ID
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            David Grey
+                          </td>
+                          <td>
+                            BUY 4 BTC at $32.50
+                          </td>
+                          <td>
+                            12
+                          </td>
+                          <td>
+                            Dec 5, 2017
+                          </td>
+                          <td>
+                            WD-12345
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Recent Subscriptions</h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>
+                            User ID
+                          </th>
+                          <th>
+                            Strategy Subscribed To
+                          </th>
+                          <th>
+                            Transactions to Date
+                          </th>
+                          <th>
+                            Time
+                          </th>
+                          <th>
+                            User Subscription Total
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            user104
+                          </td>
+                          <td>
+                            Anova
+                          </td>
+                          <td>
+                            1
+                          </td>
+                          <td>
+                            Jan 5, 2019
+                          </td>
+                          <td>
+                            12
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js' ) }}"></script>
+{% endblock %}
+

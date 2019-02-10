@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+ <div class="page-header">
+            <h2 class="page-title">
+              Strategies
+            </h2>
+          </div>
+
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">All Strategies</h4>
+                  
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Strategy ID</th>
+                        <th>Common Name </th>
+                        <th>Description</th>
+                        <th>Number of Subscribers</th>
+                       <!-- <th>Subscribed?</th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% if strategies %}
+                        {% for strategy in strategies %}
+                      <tr>
+                        <td>{{ strategy.strategy_id }}</td>
+                        <td>{{ strategy.common_name }}</td>
+                        
+                        <td>{{ strategy.description }}</td>
+                        <td>----------------------</td>
+                        
+                      </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>    
+        </div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+

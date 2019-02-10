@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+        <div class="page-header">
+            <h2 class="page-title">
+            {% if transaction %}
+                {{ transaction.transaction_id }}
+            </h2>
+          </div>
+        <div class="row">
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Details</h4>
+                  <p> <span style="font-weight:bold;text-transform:capitalize">Transaction ID:</span>
+                   {{ transaction.transaction_id }} 
+                  </p>
+                  <p><span style="font-weight:bold;text-transform:capitalize">Executing Strategy:</span> 
+                   {{ transaction.strategy_id }}
+                  </p>
+                  <p><span style="font-weight:bold;text-transform:capitalize">Security:</span> 
+                  {{ transaction.security_id }}
+                  </p>
+                  <p><span style="font-weight:bold;text-transform:capitalize">Quantity:</span> 
+                  {{ transaction.quantity }}
+                  </p>
+                  <p><span style="font-weight:bold;text-transform:capitalize">Limit:</span> 
+                  {{ transaction.limit }}
+                  </p>
+                  <p><span style="font-weight:bold;text-transform:capitalize">Side:</span> 
+                  {{ transaction.side }}
+                  </p>
+                  
+                  <p><span style="font-weight:bold;text-transform:capitalize">Time</span> 
+                  {{ transaction.timestamp }}
+                  </p>                  
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Particapant Subscribers</h4>
+                  <p class="card-description">
+                    Users who participated in trade
+                  </p>
+                  <p> {% if transaction_subscribers %}
+                     {% for subscriber in transaction_subscribers %}
+                        <span> {{ subscriber.username }}, &nbsp; </span>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+              </div>
+            </div>     
+        </div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
